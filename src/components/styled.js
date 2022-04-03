@@ -39,3 +39,250 @@ export const LinkText = styled.p `
     color: #52B6FF;
     text-align: center;
 `;
+export const HeaderHabitos = styled.header`
+    z-index: 1;
+    width: 375px;
+    height: 70px;
+    background: #126BA5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 18px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    .imgUser{
+        width: 51px;
+        height: 51px;
+        border-radius: 98.5px;
+    }
+`;
+
+export const CorpoHabitos = styled.header`
+    margin-top: 70px;
+    margin-bottom: 20px;
+    height: max-content;
+    div{
+        margin-inline: auto;
+        margin-top: 22px;
+        width: 340px;
+        height: 35px;    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    label{
+        width: max-content;
+        height: 29px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.976px;
+        line-height: 29px;
+        color: #126BA5;
+    }
+    button{
+        width: 40px;
+        height: 35px;
+        background: #52B6FF;
+        border-radius: 4.63636px;
+        border: none;
+        cursor: pointer;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26.976px;
+        line-height: 34px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    p{  
+        margin-top: 29px;
+        margin-inline: auto;
+        width: 338px;
+        height: 74px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17.976px;
+        line-height: 22px;
+        text-align: start;
+        color: #666666;
+    }
+`;
+
+export const AdicionarHAbito = styled.form`
+    box-sizing: border-box;
+    padding: 18px;
+    width: 340px;
+    height: 180px;
+    margin-inline: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 5px;
+    input{
+        padding: 11px;
+        width: 303px;
+        height: 45px;
+        background: #FFFFFF;
+        border: 1px solid #D5D5D5;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.976px;
+        line-height: 25px;
+        color: #666666;
+    }
+    div{
+        margin-top: 8px;
+        width: 303px;
+        height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+    }
+    div button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #D5D5D5;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin-right: 4px;
+        position: unset;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.976px;
+        line-height: 25px;
+    }
+    button{
+        width: 84px;
+        height: 35px;
+        border-radius: 4.63636px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15.976px;
+        line-height: 20px;
+        text-align: center;
+        position: absolute;
+        bottom: 15px;
+    }
+    .cancelar{
+        right: 116px;
+        background: #FFFFFF;
+        color: #52B6FF;
+    }
+    .salvar{
+        right: 16px;
+        background: #52B6FF;
+        color: #FFFFFF;
+    }
+`;
+export const DaysButton = styled.button`
+    background-color: ${(props) => props.selecionado? '#DBDBDB' : '#FFFFFF'} !important;
+    color: ${(props) => props.selecionado? '#FFFFFF' : '#DBDBDB'} !important;
+`;
+
+export const FooterHabitos = styled.footer`
+    width: 375px;
+    height: 70px;
+    position: fixed;
+    bottom: 0;    
+    display: flex;
+    justify-content: space-between;
+    div {
+        width: 91px;
+        height: 91px;
+        left: 142px;
+        top: 566px;
+        position: absolute;
+        top: -31px;
+        cursor: pointer;
+        background: #FFFFFF;
+    }
+    button {
+        width: 142px;
+        height: 70px;
+        border: none;
+        cursor: pointer;
+        background: #FFFFFF;
+    }
+    p {
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17.976px;
+        line-height: 22px;
+        text-align: center;
+        color: #52B6FF;
+    }
+`;
+
+export const Habito = styled.div`
+    height: max-content;
+    padding-bottom: 105px;
+    div{
+        box-sizing: border-box;
+        width: 340px;
+        margin-inline: auto;
+        padding-inline: 15px;
+        padding-block: 7px;
+        margin-top: 0;
+        height: 91px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        position: relative;
+    }
+    div p{
+        margin-top: 0;
+        margin-left: 0px;
+        width: 183px;
+        height: 25px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.976px;
+        line-height: 25px;
+        color: #666666;
+        text-align: start;
+    }
+    div img{
+        position: absolute;
+        top: 11px;
+        right: 10px;
+        cursor: pointer;
+    }
+    div section{
+        margin-top: 0px;
+        width: 303px;
+        height: 30px;
+        display: flex;
+        padding: 0;
+    }
+    section button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #D5D5D5;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin-right: 4px;
+        position: unset;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.976px;
+        line-height: 25px;
+    }
+`;

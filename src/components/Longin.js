@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { LogoImg, FormLogin, LinkText } from "./styled";
@@ -20,17 +20,11 @@ export default function Login() {
         axios.post(URL, dados)
         .then((response) => {
             const {id, name, image, email, password, token} = response.data;
-            localStorage.setItem('id', id);
-            localStorage.setItem('name', name);
-            localStorage.setItem('image', image);
-            localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
-            localStorage.setItem('token', token);
-
-            console.log(response.data);
+            localStorage.setItem('user',{'id': id, 'name': name, 'image': image, 'email': email, 'password': password, 'token': token});
         })
+        .catch(() => alert('falha na autenticação'));
     };
-
+    
     return(
         <>
         <LogoImg src={logo} alt="TrackIt"></LogoImg>

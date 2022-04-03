@@ -1,11 +1,14 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "./Context";
+import Habitos from "./Habitos";
 import { LogoImg, FormLogin, LinkText } from "./styled";
 import logo from "./../assets/Group 8.svg";
 
 export default function Cadastro() {
 
+    const {userLog} = useContext(AuthContext);
     const URL='https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up';
 
     const [email, setEmail] = useState();
@@ -30,20 +33,28 @@ export default function Cadastro() {
             console.log(err);
         });
     };
-
-    return(
-        <>
-        <LogoImg src={logo} alt="TrackIt"></LogoImg>
-        <FormLogin onSubmit={(event) => {event.preventDefault()}}>
-            <input type={'email'} placeholder="email" onChange={(event) => setEmail(event.target.value)}></input>
-            <input type={'password'} placeholder="senha" onChange={(event) => setSenha(event.target.value)}></input>
-            <input type={'text'} placeholder="nome" onChange={(event) => setNome(event.target.value)}></input>
-            <input type={'text'} placeholder="foto" onChange={(event) => setImage(event.target.value)}></input>
-            <button type={'submit'} onClick={() => EnviarCadastro()}>Cadastrar</button>
-        </FormLogin>
-
-        <Link to='/'><LinkText>Já tem uma conta? Faça login!</LinkText></Link>
-        </>
-    );
+    if(userLog){
+        if(window.confirm('Deseja sair?')){
+            localStorage.removeItem('user');
+            window.location.reload();
+        }else{
+            return <Habitos />;
+        }
+    }else{
+        return(
+            <>
+            <LogoImg src={logo} alt="TrackIt"></LogoImg>
+            <FormLogin onSubmit={(event) => {event.preventDefault()}}>
+                <input type={'email'} placeholder="email" onChange={(event) => setEmail(event.target.value)}></input>
+                <input type={'password'} placeholder="senha" onChange={(event) => setSenha(event.target.value)}></input>
+                <input type={'text'} placeholder="nome" onChange={(event) => setNome(event.target.value)}></input>
+                <input type={'text'} placeholder="foto" onChange={(event) => setImage(event.target.value)}></input>
+                <button type={'submit'} onClick={() => EnviarCadastro()}>Cadastrar</button>
+            </FormLogin>
+    
+            <Link to='/'><LinkText>Já tem uma conta? Faça login!</LinkText></Link>
+            </>
+        );
+    }
 }
 

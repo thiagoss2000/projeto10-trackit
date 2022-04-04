@@ -8,7 +8,7 @@ import check from "./../assets/Vector2.svg"
 
 export default function Hoje(){
 
-    const { habitosToday, progress, setProgress, setHabitosToday,  setLoad, load, setBlock, dadosUser, userLog } = useContext(AuthContext);
+    const { habitosToday, progress, setProgress, setHabitosToday,  setLoad, load, setBlock, dadosUser } = useContext(AuthContext);
     const URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today';
     const config = {
         headers: {
@@ -66,11 +66,13 @@ export default function Hoje(){
         <h2>{`${diasSemana[date.$W]}, ${("00" + (date.$D)).slice(-2)}/${("00" + (date.$M +1)).slice(-2)}`}</h2>
         <h4>{(progress === 0? 'Nenhum hábito concluído ainda' : (progress === -1? 'Não há hábitos para hoje' : `${Math.round(progress)}% dos hábitos concluídos`))}</h4>
             {habitosToday.map((habito => {
+                let recorde;
+                (habito.currentSequence >= habito.highestSequence && habito.highestSequence !== 0? recorde = true : recorde = false);
                 return(
-                    <ListDay key={habito.id} onClick={() => concluir(habito.id, habito.done)} check={habito.done}>
+                    <ListDay key={habito.id} onClick={() => concluir(habito.id, habito.done)} check={habito.done} recorde={recorde}>
                         <p className="Tarefa">{habito.name}</p>
-                        <p className="Andamento">Sequência atual: <span>{habito.currentSequence} dias</span></p>
-                        <p className="Andamento">Seu recorde: {habito.highestSequence} dias</p>
+                        <p className="Andamento">Sequência atual: <span className="CheckNum">{habito.currentSequence} dias</span></p>
+                        <p className="Andamento">Seu recorde: <span className="RecordeNum">{habito.highestSequence} dias</span></p>
                         <div className="Check"><img src={check} alt="check"></img></div>
                     </ListDay>
                 );

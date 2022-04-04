@@ -19,7 +19,7 @@ export default function Footer(){
                 <Link to='/hoje'>
                 <CircularProgressbar
                     value={progress}
-                    text={'Hoje'}
+                    text={''}
                     background
                     backgroundPadding={6}
                     styles={buildStyles({
@@ -29,6 +29,7 @@ export default function Footer(){
                     trailColor: "transparent"
                     })}
                 />
+                <p className="ProgressBar">Hoje</p>
                 </Link>
             </div>    
             <button

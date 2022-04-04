@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const AppStyled = styled.div`
+    width: 375px;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: #e5e5e5;
+`;
+
 export const Block = styled.div`
     z-index: 1;
     background-color: #E5E5E5;
@@ -239,6 +249,12 @@ export const FooterHabitos = styled.footer`
         cursor: pointer;
         background: #FFFFFF;
     }
+    .ProgressBar{
+        color: #FFFFFF;
+        position: absolute;
+        top: 33px;
+        left: 25px;
+    }
     p {
         font-family: 'Lexend Deca';
         font-style: normal;
@@ -361,7 +377,8 @@ export const ListDay = styled.div`
     background: #FFFFFF;
     margin-bottom: 10px;    
     p{width: 100%;}
-    span{color: ${(props => props.check? '#8FC549': '#666666')};}
+    .CheckNum{color: ${(props => props.check? '#8FC549': '#666666')};}
+    .RecordeNum{color: ${(props => props.recorde? '#8FC549': '#666666')};}
     .Tarefa{
         margin-bottom: 7px;
         font-family: 'Lexend Deca';
@@ -396,4 +413,70 @@ export const ListDay = styled.div`
         left: 18.5px;
         top: 20px;
     } 
+`;
+
+export const History = styled.div`
+    width: 100%;
+    height: max-content;
+    margin-top: 70px;
+    margin-bottom: 105px;
+    padding-inline: 15px;
+    h2{
+        margin-top: 28px;
+        text-align: start;
+        margin-left: 2px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.976px;
+        line-height: 29px;
+        color: #126BA5;
+    }
+    h3{
+        margin-top: 10px;
+        text-align: start;
+        margin-left: 2px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        color: #126BA5;
+    }
+    p{
+        margin-top: 17px;
+        text-align: start;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17.976px;
+        line-height: 22px;
+        color: #666666;
+    }
+    .sdp{
+        --theme-color :  #fde080  !important;
+        --selected-date-color :  #000000  !important;
+        margin-top: 11px;
+        margin-inline: auto;
+        width: 335px;
+        height: 402px;
+        /* background-color: yellow; */
+
+    }
+`
+export const DayHistory = styled.div`
+    margin-bottom: 5px;
+    p{
+        margin-top: 0;
+        text-align: start;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: #666666;
+    }
+    span{
+        color: ${(props => props.estado? '#8FC549': '#666666')};
+    }
 `;

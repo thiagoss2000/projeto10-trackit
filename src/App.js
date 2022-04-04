@@ -7,14 +7,13 @@ import Habitos from './components/Habitos';
 import Hoje from './components/Hoje';
 import Historico from './components/Historico';
 import Logout from './components/Logout';
-import { Block } from './components/styled';
-import './App.css';
+import { AppStyled, Block } from './components/styled';
 
 function App() {
   const { block, userLog } = useContext(AuthContext);
 
   return (
-      <div className="App">
+      <AppStyled>
         <BrowserRouter>
         <Block block={block}></Block>
           <Routes>
@@ -25,7 +24,7 @@ function App() {
             <Route path='/historico' element={userLog? (<Historico />) : (<Navigate replace to="/" />)}></Route>
           </Routes>
         </BrowserRouter>
-      </div>
+      </AppStyled>
   );
 }
 

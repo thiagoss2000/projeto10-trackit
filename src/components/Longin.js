@@ -2,11 +2,12 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "./Context";
+import { ThreeDots } from  'react-loader-spinner'
 import { LogoImg, FormLogin, LinkText } from "./styled";
 import logo from "./../assets/Group 8.svg";
 
 export default function Login() {
-    const { setBlock, setDadosUser } = useContext(AuthContext);
+    const { setBlock, block, setDadosUser } = useContext(AuthContext);
 
     const URL='https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login';
 
@@ -26,6 +27,7 @@ export default function Login() {
             localStorage.setItem('emailUser', `${email}`);
             localStorage.setItem('senhaUser', `${senha}`);
             setBlock(false);
+            window.location.reload();
         })
         .catch((err) => {console.log(err); alert('falha na autenticação')});
     };
@@ -35,7 +37,9 @@ export default function Login() {
         <FormLogin onSubmit={(event) => {event.preventDefault()}}>           
             <input type={'email'} placeholder="email" onChange={(event) => setEmail(event.target.value)}></input>
             <input type={'password'} placeholder="senha" onChange={(event) => setSenha(event.target.value)}></input>
-            <button type={'submit'} onClick={() => EnviarLogin()}>Entrar</button>
+            <button type={'submit'} onClick={() => EnviarLogin()}>
+                {(block? <div className="Loader"><ThreeDots color="#FFFFFF" height={15} width={45} /></div> : 'Entrar')} 
+            </button>
         </FormLogin>
 
         <Link to='/cadastro' style={{textDecoration: 'none'}}><LinkText>Não tem uma conta? Cadastre-se!</LinkText></Link>

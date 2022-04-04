@@ -13,6 +13,6 @@ export default function Logout(){
         setUserLog(false);
         return <Navigate replace to="/" />;
     }else{
-        return <Navigate replace to="/hoje" />;
+        return <Navigate replace to="/" />;
     }
 }

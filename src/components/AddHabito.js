@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "./Context";
+import { ThreeDots } from  'react-loader-spinner'
 import { AdicionarHAbito, DaysButton } from "./styled";
 
 export default function AddHabito(){
   
-    const { setLoad, load, setBlock, dadosUser } = useContext(AuthContext);
+    const { setLoad, load, setBlock, block, dadosUser } = useContext(AuthContext);
 
     const[formAdd, setFormAdd] = useState(false);
     const[inputName, setInputName] = useState('');
@@ -70,7 +71,7 @@ export default function AddHabito(){
                 <button type='button' className="cancelar" onClick={() => setFormAdd(false) }>Cancelar</button>
                 <button type='submit' className="salvar" 
                     onClick={() => (inputDays.length !== 0 && inputName !== ''? postHabito(inputDays, inputName):alert('Preencha todos os campos!'))}
-                >Salvar</button>
+                > {(block? <div className="Loader"><ThreeDots color="#FFFFFF" height={15} width={45} /></div> : 'Salvar')} </button>
             </AdicionarHAbito>
             </>
         );

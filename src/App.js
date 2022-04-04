@@ -5,9 +5,10 @@ import Login from './components/Longin';
 import Cadastro from './components/Cadastro';
 import Habitos from './components/Habitos';
 import Hoje from './components/Hoje';
+import Historico from './components/Historico';
+import Logout from './components/Logout';
 import { Block } from './components/styled';
 import './App.css';
-import Logout from './components/Logout';
 
 function App() {
   const { block, userLog } = useContext(AuthContext);
@@ -18,9 +19,10 @@ function App() {
         <Block block={block}></Block>
           <Routes>
             <Route path='/' element={userLog? (<Navigate replace to="/hoje" />) : (<Login />)}></Route>
-            <Route path='/cadastro' element={userLog? (<Logout/ >) : (<Cadastro />)}></Route>
+            <Route path='/cadastro' element={userLog? (<Logout />) : (<Cadastro />)}></Route>
             <Route path='/habitos' element={userLog? (<Habitos />) : (<Navigate replace to="/" />)}></Route>
             <Route path='/hoje' element={userLog? (<Hoje />) : (<Navigate replace to="/" />)}></Route>
+            <Route path='/historico' element={userLog? (<Historico />) : (<Navigate replace to="/" />)}></Route>
           </Routes>
         </BrowserRouter>
       </div>

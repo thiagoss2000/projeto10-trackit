@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Block = styled.div`
     z-index: 1;
     background-color: #E5E5E5;
-    opacity: 0.8;
+    opacity: 0.7;
     width: 375px;
     height: ${((props) => props.block? '100%' : '0')};
     position: absolute;
@@ -26,13 +26,29 @@ export const FormLogin = styled.form `
         border-radius: 5px;
         margin-bottom: 6px;
     }
+    .Loader{
+        position: absolute;
+        width: 303px;
+        height: 45px;
+        top: 0px;
+        left: 0px;
+        padding-top: 15px;
+        padding-left: 130px;
+    }
     button {
+        position: relative;
         width: 303px;
         height: 45px;
         background: #52B6FF;
         border-radius: 4.63636px;
         border: none;
         margin-bottom: 25px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20.976px;
+        line-height: 26px;
+        text-align: center;
+        color: #FFFFFF;
     }
 `;
 export const LinkText = styled.p `
@@ -65,6 +81,7 @@ export const HeaderHabitos = styled.header`
         width: 51px;
         height: 51px;
         border-radius: 98.5px;
+        cursor: pointer;
     }
 `;
 
@@ -159,6 +176,15 @@ export const AdicionarHAbito = styled.form`
         font-size: 19.976px;
         line-height: 25px;
     }
+    .Loader{
+        position: absolute;
+        top: -8px;
+        left: 0px;
+        padding-bottom: 8px;
+        padding-left: 19px;
+        width: 84px;
+        height: 35px;
+    }
     button{
         width: 84px;
         height: 35px;
@@ -170,7 +196,7 @@ export const AdicionarHAbito = styled.form`
         line-height: 20px;
         text-align: center;
         position: absolute;
-        bottom: 15px;
+        bottom: 15px;      
     }
     .cancelar{
         right: 116px;

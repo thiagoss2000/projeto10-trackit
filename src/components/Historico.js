@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
-import DatePicker from 'sassy-datepicker';
+// import DatePicker from 'sassy-datepicker';
 import { AuthContext } from "./Context";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -42,7 +42,7 @@ export default function Historico() {
                             <h3>{days.day}</h3>
                             {days.habits.map((habit) => {
                                 return(
-                                    <DayHistory estado={habit.done}>
+                                    <DayHistory estado={habit.done} key={habit.id}>
                                     <p>Hábito: {habit.name} :
                                     <span>  {(habit.done? 'Concluído' : 'Não concluído')}</span></p>
                                     </DayHistory>

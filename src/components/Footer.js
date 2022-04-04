@@ -37,7 +37,7 @@ export default function Footer(){
                 </Link>
             </button>
             <button>
-                <Link to='/habitos' style={{ textDecoration: 'none' }}>
+                <Link to='/historico' style={{ textDecoration: 'none' }}>
                     <p>Histórico</p>
                 </Link>
             </button>

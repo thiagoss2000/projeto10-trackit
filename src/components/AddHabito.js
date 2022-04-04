@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { AuthContext } from "./Context";
 import { AdicionarHAbito, DaysButton } from "./styled";
 
 export default function AddHabito(){
   
+    const { setLoad, load, setBlock, dadosUser } = useContext(AuthContext);
+
     const[formAdd, setFormAdd] = useState(false);
     const[inputName, setInputName] = useState('');
     const[inputDays, setinputDays] = useState([]);
+
+    useEffect(() => {
+        
+    },[load]);
 
     function selecionaToggle(day){
         if(inputDays.includes(day)){
@@ -21,10 +28,11 @@ export default function AddHabito(){
     }
 
     function postHabito(days, name){
+        setBlock(true);
         const URL = 'https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits';
         const config = {
             headers: {
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
+                "Authorization": `Bearer ${dadosUser.token}`
             }
         };
         const body = {
@@ -32,8 +40,14 @@ export default function AddHabito(){
             days: days 
         }; 
         axios.post(URL, body, config)
-        .then((response) => {console.log(response); window.location.reload()})
-        .catch((err) => console.log(err));
+        .then((response) => {
+            setInputName('');
+            setinputDays([]);
+            setFormAdd(false)
+            setBlock(false);
+            setLoad(!load);
+        })
+        .catch((err) => {console.log(err); alert('Ops, ocorreu um erro, tente novamente.')});
     }
 
     const days = {days: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'], number:[0, 1, 2, 3, 4, 5, 6]};

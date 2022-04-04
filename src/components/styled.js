@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const Block = styled.div`
+    z-index: 1;
+    background-color: #E5E5E5;
+    opacity: 0.8;
+    width: 375px;
+    height: ${((props) => props.block? '100%' : '0')};
+    position: absolute;
+`;
+
 export const LogoImg = styled.img `
     width: 180px;
     height: 178.38px;
@@ -40,7 +49,7 @@ export const LinkText = styled.p `
     text-align: center;
 `;
 export const HeaderHabitos = styled.header`
-    z-index: 1;
+    z-index: 2;
     width: 375px;
     height: 70px;
     background: #126BA5;
@@ -52,7 +61,7 @@ export const HeaderHabitos = styled.header`
     box-sizing: border-box;
     position: fixed;
     top: 0;
-    .imgUser{
+    .ImgUser{
         width: 51px;
         height: 51px;
         border-radius: 98.5px;
@@ -97,19 +106,6 @@ export const CorpoHabitos = styled.header`
         line-height: 34px;
         text-align: center;
         color: #FFFFFF;
-    }
-    p{  
-        margin-top: 29px;
-        margin-inline: auto;
-        width: 338px;
-        height: 74px;
-        font-family: 'Lexend Deca';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 17.976px;
-        line-height: 22px;
-        text-align: start;
-        color: #666666;
     }
 `;
 
@@ -193,6 +189,7 @@ export const DaysButton = styled.button`
 `;
 
 export const FooterHabitos = styled.footer`
+    z-index: 2;
     width: 375px;
     height: 70px;
     position: fixed;
@@ -285,4 +282,92 @@ export const Habito = styled.div`
         font-size: 19.976px;
         line-height: 25px;
     }
+    p{  
+        margin-top: 29px;
+        margin-inline: auto;
+        width: 338px;
+        height: 74px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17.976px;
+        line-height: 22px;
+        text-align: start;
+        color: #666666;
+    }
+`;
+
+export const Corpo = styled.div`
+    margin-top: 70px;
+    padding-bottom: 105px;
+    width: 100%;
+    height: max-content;
+    *{
+        margin-inline: auto;
+        width: 340px;
+        text-align: start;
+    }
+    h2{
+        margin-top: 28px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.976px;
+        line-height: 29px;
+        color: #126BA5;
+    }
+    h4{
+        margin-bottom: 28px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17.976px;
+        line-height: 22px;
+        color: ${props => props.progress};
+    }   
+`;
+export const ListDay = styled.div`
+    cursor: pointer;
+    height: 94px;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    background: #FFFFFF;
+    margin-bottom: 10px;    
+    p{width: 100%;}
+    span{color: ${(props => props.check? '#8FC549': '#666666')};}
+    .Tarefa{
+        margin-bottom: 7px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19.976px;
+        line-height: 25px;
+        color: #666666;
+    }
+    .Andamento{
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.976px;
+        line-height: 16px;
+        color: #666666;
+    }
+    .Check{
+        width: 69px;
+        height: 69px;
+        border: 1px solid #E7E7E7;
+        box-sizing: border-box;
+        border-radius: 5px;
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        background: ${(props => props.check? '#8FC549': '#EBEBEB')};
+    }
+    img {
+        width: 35px;
+        position: absolute;
+        left: 18.5px;
+        top: 20px;
+    } 
 `;
